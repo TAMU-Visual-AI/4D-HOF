@@ -1,0 +1,29 @@
+{
+  "sequence": "controller",
+  "frameCount": 210,
+  "vertexCount": 778,
+  "faceCount": 1552,
+  "fps": 30.0,
+  "width": 910,
+  "height": 512,
+  "intrinsics": [
+    [
+      761.8793334960938,
+      0.0,
+      455.0
+    ],
+    [
+      0.0,
+      761.879150390625,
+      256.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "coordinateSystem": "OpenCV camera (supplied)",
+  "units": "meters (supplied)",
+  "frameMapping": "index-matched to supplied RGB; 210 frames at 30 fps"
+}

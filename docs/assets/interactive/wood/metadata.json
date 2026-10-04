@@ -1,0 +1,29 @@
+{
+  "sequence": "wood",
+  "frameCount": 116,
+  "vertexCount": 778,
+  "faceCount": 1552,
+  "fps": 30.0,
+  "width": 1920,
+  "height": 1080,
+  "intrinsics": [
+    [
+      913.5931396484375,
+      0.0,
+      960.0
+    ],
+    [
+      0.0,
+      913.5931396484375,
+      540.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "coordinateSystem": "OpenCV camera (supplied)",
+  "units": "meters (supplied)",
+  "frameMapping": "index-matched to supplied RGB; 116 frames at 30 fps"
+}

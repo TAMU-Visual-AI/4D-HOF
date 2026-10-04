@@ -1,0 +1,29 @@
+{
+  "sequence": "07",
+  "frameCount": 66,
+  "vertexCount": 778,
+  "faceCount": 1552,
+  "fps": 30.0,
+  "width": 640,
+  "height": 480,
+  "intrinsics": [
+    [
+      592.3253784179688,
+      0.0,
+      320.0
+    ],
+    [
+      0.0,
+      592.3253173828125,
+      240.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "coordinateSystem": "OpenCV camera (supplied)",
+  "units": "meters (supplied)",
+  "frameMapping": "index-matched to supplied RGB; 66 frames at 30 fps"
+}

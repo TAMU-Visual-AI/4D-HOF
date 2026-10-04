@@ -1,0 +1,29 @@
+{
+  "sequence": "MDF14",
+  "frameCount": 635,
+  "vertexCount": 778,
+  "faceCount": 1552,
+  "fps": 30.0,
+  "width": 640,
+  "height": 480,
+  "intrinsics": [
+    [
+      642.366455078125,
+      0.0,
+      320.0
+    ],
+    [
+      0.0,
+      642.366455078125,
+      240.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "coordinateSystem": "OpenCV camera (inferred and checked by projection)",
+  "units": "meters (object GLB metadata)",
+  "frameMapping": "index-matched to supplied RGB; 635 frames at 30 fps"
+}

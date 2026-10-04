@@ -1,0 +1,29 @@
+{
+  "sequence": "bar",
+  "frameCount": 193,
+  "vertexCount": 778,
+  "faceCount": 1552,
+  "fps": 30.0,
+  "width": 1920,
+  "height": 1080,
+  "intrinsics": [
+    [
+      1481.142822265625,
+      0.0,
+      960.0
+    ],
+    [
+      0.0,
+      1481.142822265625,
+      540.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "coordinateSystem": "OpenCV camera (inferred and checked by projection)",
+  "units": "meters (object GLB metadata)",
+  "frameMapping": "index-matched to supplied RGB; 193 frames at 30 fps"
+}

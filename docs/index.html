@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>4D-HOF | Hand-Object Flow Matching</title>
+  <meta name="description" content="4D-HOF: Hand-Object Flow Matching for Feed-Forward 4D Interaction Reconstruction. Research overview and qualitative comparisons.">
+  <meta name="theme-color" content="#17695f">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2317695f'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia' font-size='36' fill='white'%3E4D%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css?v=gpt-panels"><script src="app.js?v=hide-time" defer></script><script src="mosaic.js?v=2" defer></script><script src="gpt-comparison.js?v=2" defer></script>
+  <script type="importmap">{"imports":{"three":"./vendor/three/three.module.js","three/addons/":"./vendor/three/addons/"}}</script>
+  <script type="module" src="interactive.js?v=bar"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="nav-inner"><a class="wordmark" href="#">4D<span>–</span>HOF</a><nav aria-label="Main navigation"><a href="#abstract">Abstract</a><a href="#method">Method</a><a href="#comparison">Comparisons</a></nav><span class="nav-note">Research project</span></div></header>
+<main id="main">
+<section class="hero hero-mosaic" aria-labelledby="paper-title">
+  <div class="hero-media" aria-hidden="true">
+    <video muted loop playsinline preload="none" poster="assets/mosaic/ABF14.jpg?v=1" data-src="assets/mosaic/ABF14.mp4?v=1" aria-hidden="true" tabindex="-1"></video>
+    <video muted loop playsinline preload="none" poster="assets/mosaic/GPMF14.jpg?v=1" data-src="assets/mosaic/GPMF14.mp4?v=1" aria-hidden="true" tabindex="-1"></video>
+    <video muted loop playsinline preload="none" poster="assets/mosaic/MDF14.jpg?v=1" data-src="assets/mosaic/MDF14.mp4?v=1" aria-hidden="true" tabindex="-1"></video>
+    <video muted loop playsinline preload="none" poster="assets/mosaic/bar.jpg?v=1" data-src="assets/mosaic/bar.mp4?v=1" aria-hidden="true" tabindex="-1"></video>
+    <video muted loop playsinline preload="none" poster="assets/mosaic/controller.jpg?v=1" data-src="assets/mosaic/controller.mp4?v=1" aria-hidden="true" tabindex="-1"></video>
+    <video muted loop playsinline preload="none" poster="assets/mosaic/wood.jpg?v=1" data-src="assets/mosaic/wood.mp4?v=1" aria-hidden="true" tabindex="-1"></video>
+    <video muted loop playsinline preload="none" poster="assets/mosaic/07.jpg?v=2" data-src="assets/mosaic/07.mp4?v=2" aria-hidden="true" tabindex="-1"></video>
+    <video muted loop playsinline preload="none" poster="assets/mosaic/10.jpg?v=1" data-src="assets/mosaic/10.mp4?v=1" aria-hidden="true" tabindex="-1"></video>
+  </div>
+  <div class="hero-wash" aria-hidden="true"></div>
+  <div class="hero-content wrap">
+  <div class="eyebrow"><span class="short-line"></span> HAND–OBJECT INTERACTION RECONSTRUCTION</div>
+  <h1 id="paper-title"><span class="hero-name">4D-<em>HOF</em></span><span class="hero-title">Hand-Object Flow Matching for<br class="desktop-break"> Feed-Forward 4D Interaction Reconstruction</span></h1>
+  </div>
+</section>
+<section class="wrap interactive-section" id="interactive-demo" aria-labelledby="interactive-title">
+  <div class="demo-shell">
+    <div class="demo-heading"><div><span class="section-kicker">EXPLORE IN 3D</span><h2 id="interactive-title">Interaction, from every angle.</h2></div></div>
+    <div class="demo-views"><figure class="demo-input"><figcaption>Input video <span>RGB</span></figcaption><canvas id="demo-input-canvas" width="640" height="480" role="img" aria-label="ABF14 input video frame"></canvas><video id="demo-rgb" muted playsinline loop preload="auto" hidden aria-hidden="true"></video></figure><figure class="demo-output"><figcaption>4D-HOF <span>Interactive reconstruction</span></figcaption><div id="demo-stage" class="demo-stage" role="img" aria-label="Interactive 3D reconstruction"><div id="demo-loading">Loading 3D reconstruction…</div></div></figure></div>
+    <div class="demo-view-controls"><div class="segmented" role="group" aria-label="Interactive view"><button type="button" data-demo-view="orbit" aria-pressed="true" data-demo-control disabled>Free view</button><button type="button" data-demo-view="overlay" aria-pressed="false" data-demo-control disabled>Camera overlay</button></div><button type="button" id="demo-reset" class="demo-reset" data-demo-control disabled>Reset view</button><label class="demo-opacity-label" for="demo-opacity">Mesh opacity <input type="range" id="demo-opacity" min="0" max="100" value="100" data-demo-control disabled><output id="demo-opacity-value" for="demo-opacity">100%</output></label></div>
+    <div class="demo-playback"><button type="button" id="demo-play" class="play-button" aria-label="Play interactive sequence" data-demo-control disabled>Play</button><button type="button" id="demo-prev" class="demo-step" aria-label="Previous frame" data-demo-control disabled>‹</button><button type="button" id="demo-next" class="demo-step" aria-label="Next frame" data-demo-control disabled>›</button><input type="range" id="demo-frame" min="0" max="449" step="1" value="0" aria-label="Interactive frame" data-demo-control disabled><label class="speed-label" for="demo-speed">Speed <select id="demo-speed" data-demo-control disabled><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label></div>
+    <div class="demo-gallery">
+      <div class="demo-gallery-toolbar"><span>Choose a sequence</span><div class="demo-gallery-navigation"><button type="button" id="demo-example-prev" class="demo-step" aria-label="Previous example" data-demo-nav disabled>‹</button><button type="button" id="demo-example-next" class="demo-step" aria-label="Next example" data-demo-nav disabled>›</button></div></div>
+      <div id="demo-examples" class="demo-example-rail" role="group" aria-label="Interactive examples"></div>
+    </div>
+    <p id="demo-status" class="demo-error" role="status" hidden></p>
+  </div><p id="demo-hint" class="demo-hint">Drag to rotate · Scroll or pinch to zoom</p>
+</section>
+<section class="abstract-section" id="abstract"><div class="wrap section-grid"><div><span class="section-kicker">01 / OVERVIEW</span><h2>Abstract</h2></div><div class="abstract-copy">
+<p>Existing methods for 4D hand-object reconstruction often rely on costly per-sequence optimization, while generative approaches typically synthesize interactions from random noise, which can lead to unstable interaction prediction. We introduce 4D-HOF, a feed-forward framework that reconstructs 4D hand-object interactions from coarse but informative estimates produced by vision foundation models. Concretely, we learn a conditional flow matching model that transports foundation-model-derived hand-object states toward an interaction manifold, allowing the model to correct errors in translation, rotation, and alignment in a feed-forward manner. A key advantage of our generative formulation is that it naturally enables test-time guidance within the transport process. Rather than applying a separate post-hoc optimization after reconstruction, we directly steer the evolving generative states using physical interaction constraints and observed 2D evidence, allowing the reconstruction to be refined as part of the generative process itself. By training the generative model on diverse datasets, 4D-HOF generalizes robustly to challenging in-the-wild scenarios. Experiments on out-of-domain benchmarks show that 4D-HOF achieves state-of-the-art performance, producing more stable and accurate 4D hand-object reconstructions.</p>
+</div></div></section>
+<section class="wrap method-section" id="method"><div class="section-heading"><div><span class="section-kicker">02 / THE APPROACH</span><h2>Method overview</h2></div><a class="quiet-link" href="assets/framework.pdf" target="_blank" rel="noopener">View full-resolution figure <span aria-hidden="true">＋</span></a></div>
+<figure class="framework"><a href="assets/framework.pdf" target="_blank" rel="noopener" aria-label="Open method overview figure as a PDF"><img src="assets/framework.png" width="2400" height="1732" loading="lazy" alt="4D-HOF framework: contextual scene parsing, object and hand reconstruction, followed by flow matching refinement using image features and hand-object point clouds."></a><figcaption><span class="figure-label">FIGURE 1</span><div><strong>Overview of 4D-HOF.</strong> Given a monocular video, we construct initial hand-object states by leveraging foundation models, including (a) contextual scene parsing, (b) object reconstruction, (d) hand reconstruction, and (c) depth alignment for recovering metric geometry, producing coarse HOI initialization. We then formulate HOI refinement as a conditional generative bridge matching problem that takes the HOI initialization together with RGB and 3D cues as input and outputs the refined HOI reconstruction. At inference time, test-time guidance adjusts the evolving states to better satisfy physical and image-space constraints.</div></figcaption></figure>
+</section>
+<section class="comparison-section" id="comparison"><div class="wide-wrap"><div class="section-heading"><div><span class="section-kicker">03 / SEE IT IN MOTION</span><h2>Qualitative comparison</h2></div><p>Same sequence. Different methods.<br>Explore geometry and image alignment side by side.</p></div>
+<div class="comparison-shell">
+<div class="browser-toolbar"><span class="sequence-selector-label">Choose a sequence</span><span class="selection-count" id="selection-count">EXAMPLE 01 / 06</span></div>
+<div class="example-selector" id="example-selector" role="group" aria-label="Choose an example"></div>
+<div class="viewer-toolbar"><div><h3 id="sequence-title">ABF14</h3></div><div class="segmented view-toggle" role="group" aria-label="Visualization mode"><button type="button" data-view="reconstruction" aria-pressed="true">Reconstruction</button><button type="button" data-view="overlay" aria-pressed="false">Overlay</button></div></div>
+<div class="video-grid" id="video-grid" aria-label="Method comparison videos"></div>
+<div class="playback-bar"><button class="play-button" id="play-button" type="button" aria-label="Play all videos" disabled><span id="play-icon" aria-hidden="true">▶</span><span id="play-label">Play</span></button><button id="restart-button" class="restart-button" type="button" aria-label="Restart all videos" title="Restart" disabled>↺</button><input id="timeline" type="range" min="0" max="1000" step="1" value="0" aria-label="Video position" aria-valuetext="0 seconds" disabled><label class="speed-label" for="speed">Speed <select id="speed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label></div>
+<div class="viewer-footnote"><span id="viewer-status" role="status" aria-live="polite">Loading videos…</span><span>GT = Ground truth</span></div>
+</div>
+<p class="comparison-note">All available methods share playback controls. Reconstruction and overlay clips are shown at their original lengths.</p>
+<noscript><p>Enable JavaScript to select examples and use the synchronized comparison viewer.</p></noscript>
+</div></section>
+<section class="gpt-comparison-section wrap" id="gpt-comparison" aria-labelledby="gpt-comparison-title">
+  <div class="section-heading"><div><span class="section-kicker">04 / ADDITIONAL COMPARISON</span><h2 id="gpt-comparison-title">GPT-6 Astra Ultra vs. <span style="white-space:nowrap">4D-HOF</span></h2></div></div>
+  <p class="gpt-experiment-note">For this experiment, we used <strong>GPT-6 Astra Ultra</strong>. A single run consumed approximately <strong>35% of the weekly usage allowance</strong> on a <strong>$100 subscription</strong>.</p>
+  <div class="comparison-shell gpt-comparison-shell">
+    <div class="viewer-toolbar"><div><h3 id="gpt-sequence-title">ABF12</h3><span>Overlay comparison</span></div></div>
+    <div class="video-grid gpt-video-grid" id="gpt-video-grid" role="group" aria-label="GPT and 4D-HOF comparison videos"></div>
+    <div class="playback-bar"><button class="play-button" id="gpt-play" type="button" aria-label="Play GPT comparison" disabled><span id="gpt-play-icon" aria-hidden="true">▶</span><span id="gpt-play-label">Play</span></button><button class="restart-button" id="gpt-restart" type="button" aria-label="Restart GPT comparison" disabled>↺</button><input id="gpt-timeline" class="gpt-timeline" type="range" min="0" max="1000" step="1" value="0" aria-label="GPT comparison position" disabled><label class="speed-label" for="gpt-speed">Speed <select id="gpt-speed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label></div>
+    <div class="demo-gallery gpt-gallery"><div class="demo-gallery-toolbar"><span>Choose a sequence</span></div><div class="demo-example-rail" id="gpt-examples" role="group" aria-label="GPT comparison examples">
+      <button type="button" class="demo-example-card" data-gpt-sequence="ABF12" aria-label="Show GPT comparison for ABF12" aria-pressed="true"><img src="assets/gpt/ABF12/ours.jpg" width="640" height="480" alt="" loading="lazy"></button>
+      <button type="button" class="demo-example-card" data-gpt-sequence="SM2" aria-label="Show GPT comparison for SM2" aria-pressed="false"><img src="assets/gpt/SM2/ours.jpg" width="640" height="480" alt="" loading="lazy"></button>
+    </div></div>
+    <div class="viewer-footnote"><span id="gpt-status" role="status" aria-live="polite">2 methods · Shared playback</span><span>GPT-6 Astra Ultra / 4D-HOF</span></div>
+  </div>
+</section>
+</main>
+<footer class="wrap"><a class="wordmark" href="#">4D<span>–</span>HOF</a><p>Hand-Object Flow Matching for Feed-Forward 4D Interaction Reconstruction</p><a href="#main">Back to top</a></footer>
+</body></html>
