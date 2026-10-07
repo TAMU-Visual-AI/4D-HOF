@@ -21,3 +21,6 @@
 /* BibTeX citation at the end of the page. */
 .citation{padding-top:8px;padding-bottom:64px}.citation-label{margin-bottom:12px}.bibtex{margin:0;padding:22px 26px;overflow-x:auto;background:var(--soft);border:1px solid var(--line);border-radius:10px;font:13px/1.75 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--ink)}
 @media(max-width:700px){.citation{padding-top:0;padding-bottom:40px}.bibtex{padding:16px 18px;font-size:12px}}
+/* Paper and code buttons under the author list. */
+.hero-links{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:26px}.hero-links a{display:inline-flex;align-items:center;justify-content:center;min-width:104px;padding:10px 20px;border-radius:5px;background:var(--ink);color:#fff;font-size:15px;font-weight:500;line-height:1.2;transition:background .15s}.hero-links a:hover{background:var(--green)}
+@media(max-width:700px){.hero-links{gap:10px;margin-top:20px}.hero-links a{min-width:92px;padding:9px 16px;font-size:14px}}
