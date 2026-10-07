@@ -27,7 +27,7 @@ function renderExamples(){
  for(const id of examples){
   const button=document.createElement('button');button.type='button';button.className='demo-example-card';button.dataset.demoSequence=id;button.disabled=true;
   button.setAttribute('aria-label',`Show interactive sequence ${id}`);button.setAttribute('aria-pressed',String(id===activeSequence));
-  const image=document.createElement('img');image.src=`assets/interactive/${id}/thumbnail.jpg`;image.alt='';image.width=480;image.height=360;image.loading='lazy';
+  const image=document.createElement('img');image.src=`assets/interactive/${id}/thumbnail.jpg${['07','10'].includes(id)?'?v=20261007':''}`;image.alt='';image.width=480;image.height=360;image.loading='lazy';
   button.append(image);fragment.append(button);
  }
  el('demo-examples').replaceChildren(fragment);
@@ -98,7 +98,7 @@ async function loadSequence(sequence){
  try{
   const results=await Promise.allSettled([
    fetchData(base+'metadata.json','json'),fetchData(base+'hand-vertices.bin'),fetchData(base+'hand-faces.bin'),fetchData(base+'object-poses.bin'),
-   new GLTFLoader().loadAsync(base+'object.glb'),fetchData(base+'rgb.mp4')
+   new GLTFLoader().loadAsync(base+'object.glb'),fetchData(base+'rgb.mp4'+(['07','10'].includes(sequence)?'?v=20261007':''))
   ]);
   pendingModel=results[4].status==='fulfilled'?results[4].value.scene:null;
   if(version!==loadVersion){disposeModel(pendingModel);return;}
