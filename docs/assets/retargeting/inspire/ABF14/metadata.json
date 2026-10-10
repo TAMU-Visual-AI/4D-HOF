@@ -1,0 +1,174 @@
+{
+  "sequence": "ABF14",
+  "robot": "Inspire Hand (right)",
+  "robotId": "inspire",
+  "fingerCount": 5,
+  "landmarkCount": 5,
+  "visualNodeNames": [
+    "robot_link_0",
+    "robot_link_1",
+    "robot_link_2",
+    "robot_link_3",
+    "robot_link_4",
+    "robot_link_5",
+    "robot_link_6",
+    "robot_link_7",
+    "robot_link_8",
+    "robot_link_9",
+    "robot_link_10",
+    "robot_link_11",
+    "robot_link_12"
+  ],
+  "actuatedJointNames": [
+    "pinky_proximal_joint",
+    "ring_proximal_joint",
+    "middle_proximal_joint",
+    "index_proximal_joint",
+    "thumb_proximal_pitch_joint",
+    "thumb_proximal_yaw_joint"
+  ],
+  "mimicRelations": [
+    {
+      "joint": "thumb_intermediate_joint",
+      "driver": "thumb_proximal_pitch_joint",
+      "multiplier": 1.334,
+      "offset": 0.0
+    },
+    {
+      "joint": "thumb_distal_joint",
+      "driver": "thumb_proximal_pitch_joint",
+      "multiplier": 0.667,
+      "offset": 0.0
+    },
+    {
+      "joint": "index_intermediate_joint",
+      "driver": "index_proximal_joint",
+      "multiplier": 1.06399,
+      "offset": -0.04545
+    },
+    {
+      "joint": "middle_intermediate_joint",
+      "driver": "middle_proximal_joint",
+      "multiplier": 1.06399,
+      "offset": -0.04545
+    },
+    {
+      "joint": "ring_intermediate_joint",
+      "driver": "ring_proximal_joint",
+      "multiplier": 1.06399,
+      "offset": -0.04545
+    },
+    {
+      "joint": "pinky_intermediate_joint",
+      "driver": "pinky_proximal_joint",
+      "multiplier": 1.06399,
+      "offset": -0.04545
+    }
+  ],
+  "maxMimicResidual": 6.938893903907228e-18,
+  "trackedFingers": [
+    "thumb",
+    "index",
+    "middle",
+    "ring",
+    "little"
+  ],
+  "frameCount": 450,
+  "fps": 30,
+  "linkNames": [
+    "hand_base_link",
+    "thumb_proximal_base",
+    "thumb_proximal",
+    "thumb_intermediate",
+    "thumb_distal",
+    "index_proximal",
+    "index_intermediate",
+    "middle_proximal",
+    "middle_intermediate",
+    "ring_proximal",
+    "ring_intermediate",
+    "pinky_proximal",
+    "pinky_intermediate"
+  ],
+  "jointNames": [
+    "dummy_x_translation_joint",
+    "dummy_y_translation_joint",
+    "dummy_z_translation_joint",
+    "dummy_x_rotation_joint",
+    "dummy_y_rotation_joint",
+    "dummy_z_rotation_joint",
+    "index_proximal_joint",
+    "index_intermediate_joint",
+    "middle_proximal_joint",
+    "middle_intermediate_joint",
+    "pinky_proximal_joint",
+    "pinky_intermediate_joint",
+    "ring_proximal_joint",
+    "ring_intermediate_joint",
+    "thumb_proximal_yaw_joint",
+    "thumb_proximal_pitch_joint",
+    "thumb_intermediate_joint",
+    "thumb_distal_joint"
+  ],
+  "actuatedJointUnits": [
+    "radians",
+    "radians",
+    "radians",
+    "radians",
+    "radians",
+    "radians"
+  ],
+  "targetLinks": [
+    "thumb_tip",
+    "index_tip",
+    "middle_tip",
+    "ring_tip",
+    "pinky_tip"
+  ],
+  "targetHumanIndices": [
+    4,
+    8,
+    12,
+    16,
+    20
+  ],
+  "fingertipVertexIndices": [
+    745,
+    317,
+    444,
+    556,
+    673
+  ],
+  "middleRingVertices": [],
+  "landmarkMethod": "MANO-topology fingertip vertices only; no skeletal joint centers used",
+  "optimizer": "dex-retargeting PositionOptimizer; floating base; exact URDF joint limits; soft object-surface penalty",
+  "meanTipErrorMm": 7.76363193819812,
+  "p95TipErrorMm": 19.113421316626347,
+  "meanLandmarkErrorMm": 7.76363193819812,
+  "maxJointLimitViolation": 0.0,
+  "solverFailureFrames": 0,
+  "solverStatusCounts": {
+    "3": 450
+  },
+  "units": "meters",
+  "coordinates": "OpenCV camera, same as source",
+  "sourceHandedness": "right-hand assumption; source export has no handedness metadata",
+  "limitations": [
+    "Approximate mesh landmarks, not ground-truth skeletal joints.",
+    "Kinematic playback: object poses are copied from input, not physically simulated.",
+    "Sampled soft object collision penalty; residual penetration and self-collisions remain possible. No contact-force, stability or hardware feasibility validation."
+  ],
+  "upstreamCommit": "3f56141bc8bd2760d5e452e382937269554ebb21",
+  "runtimeSeconds": 4.71,
+  "collisionAvoidance": {
+    "enabled": true,
+    "weight": 2.0,
+    "gridSpacingMm": 2,
+    "samplesPerVisualLink": 96,
+    "sampleSeed": 1729,
+    "excludedLinks": [
+      "forearm"
+    ],
+    "method": "squared negative object signed distance; trilinear grid of original watertight mesh"
+  }
+}

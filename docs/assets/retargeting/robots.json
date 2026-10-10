@@ -1,0 +1,52 @@
+[
+  {
+    "id": "shadow",
+    "name": "Shadow Hand",
+    "fingers": 5,
+    "prefix": "",
+    "sequences": [
+      "ABF14",
+      "MDF14"
+    ]
+  },
+  {
+    "id": "allegro",
+    "name": "Allegro Hand",
+    "fingers": 4,
+    "prefix": "allegro/",
+    "sequences": [
+      "ABF14",
+      "MDF14"
+    ]
+  },
+  {
+    "id": "schunk_svh",
+    "name": "SCHUNK SVH",
+    "fingers": 5,
+    "prefix": "schunk_svh/",
+    "sequences": [
+      "ABF14",
+      "MDF14"
+    ]
+  },
+  {
+    "id": "ability",
+    "name": "Ability Hand",
+    "fingers": 5,
+    "prefix": "ability/",
+    "sequences": [
+      "ABF14",
+      "MDF14"
+    ]
+  },
+  {
+    "id": "inspire",
+    "name": "Inspire Hand",
+    "fingers": 5,
+    "prefix": "inspire/",
+    "sequences": [
+      "ABF14",
+      "MDF14"
+    ]
+  }
+]

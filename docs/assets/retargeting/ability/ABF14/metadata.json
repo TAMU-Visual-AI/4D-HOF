@@ -1,0 +1,158 @@
+{
+  "sequence": "ABF14",
+  "robot": "Ability Hand (right)",
+  "robotId": "ability",
+  "fingerCount": 5,
+  "landmarkCount": 5,
+  "visualNodeNames": [
+    "robot_link_0",
+    "robot_link_1",
+    "robot_link_2",
+    "robot_link_3",
+    "robot_link_4",
+    "robot_link_5",
+    "robot_link_6",
+    "robot_link_7",
+    "robot_link_8",
+    "robot_link_9",
+    "robot_link_10",
+    "robot_link_11"
+  ],
+  "actuatedJointNames": [
+    "thumb_q1",
+    "thumb_q2",
+    "index_q1",
+    "middle_q1",
+    "pinky_q1",
+    "ring_q1"
+  ],
+  "mimicRelations": [
+    {
+      "joint": "index_q2",
+      "driver": "index_q1",
+      "multiplier": 1.05851325,
+      "offset": 0.72349796
+    },
+    {
+      "joint": "middle_q2",
+      "driver": "middle_q1",
+      "multiplier": 1.05851325,
+      "offset": 0.72349796
+    },
+    {
+      "joint": "ring_q2",
+      "driver": "ring_q1",
+      "multiplier": 1.05851325,
+      "offset": 0.72349796
+    },
+    {
+      "joint": "pinky_q2",
+      "driver": "pinky_q1",
+      "multiplier": 1.05851325,
+      "offset": 0.72349796
+    }
+  ],
+  "maxMimicResidual": 2.220446049250313e-16,
+  "trackedFingers": [
+    "thumb",
+    "index",
+    "middle",
+    "ring",
+    "little"
+  ],
+  "frameCount": 450,
+  "fps": 30,
+  "linkNames": [
+    "base",
+    "thumb_base",
+    "thumb_L1",
+    "thumb_L2",
+    "index_L1",
+    "index_L2",
+    "middle_L1",
+    "middle_L2",
+    "ring_L1",
+    "ring_L2",
+    "pinky_L1",
+    "pinky_L2"
+  ],
+  "jointNames": [
+    "dummy_x_translation_joint",
+    "dummy_y_translation_joint",
+    "dummy_z_translation_joint",
+    "dummy_x_rotation_joint",
+    "dummy_y_rotation_joint",
+    "dummy_z_rotation_joint",
+    "index_q1",
+    "index_q2",
+    "middle_q1",
+    "middle_q2",
+    "pinky_q1",
+    "pinky_q2",
+    "ring_q1",
+    "ring_q2",
+    "thumb_q1",
+    "thumb_q2"
+  ],
+  "actuatedJointUnits": [
+    "radians",
+    "radians",
+    "radians",
+    "radians",
+    "radians",
+    "radians"
+  ],
+  "targetLinks": [
+    "thumb_tip",
+    "index_tip",
+    "middle_tip",
+    "ring_tip",
+    "pinky_tip"
+  ],
+  "targetHumanIndices": [
+    4,
+    8,
+    12,
+    16,
+    20
+  ],
+  "fingertipVertexIndices": [
+    745,
+    317,
+    444,
+    556,
+    673
+  ],
+  "middleRingVertices": [],
+  "landmarkMethod": "MANO-topology fingertip vertices only; no skeletal joint centers used",
+  "optimizer": "dex-retargeting PositionOptimizer; floating base; exact URDF joint limits; soft object-surface penalty",
+  "meanTipErrorMm": 7.946246409149071,
+  "p95TipErrorMm": 18.575704004626594,
+  "meanLandmarkErrorMm": 7.946246409149071,
+  "maxJointLimitViolation": 6.067504898510379e-08,
+  "solverFailureFrames": 0,
+  "solverStatusCounts": {
+    "3": 450
+  },
+  "units": "meters",
+  "coordinates": "OpenCV camera, same as source",
+  "sourceHandedness": "right-hand assumption; source export has no handedness metadata",
+  "limitations": [
+    "Approximate mesh landmarks, not ground-truth skeletal joints.",
+    "Kinematic playback: object poses are copied from input, not physically simulated.",
+    "Sampled soft object collision penalty; residual penetration and self-collisions remain possible. No contact-force, stability or hardware feasibility validation."
+  ],
+  "upstreamCommit": "3f56141bc8bd2760d5e452e382937269554ebb21",
+  "runtimeSeconds": 3.71,
+  "collisionAvoidance": {
+    "enabled": true,
+    "weight": 1.0,
+    "gridSpacingMm": 2,
+    "samplesPerVisualLink": 96,
+    "sampleSeed": 1729,
+    "excludedLinks": [
+      "forearm"
+    ],
+    "method": "squared negative object signed distance; trilinear grid of original watertight mesh"
+  }
+}
