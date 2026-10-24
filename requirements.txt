@@ -1,0 +1,24 @@
+# Base Python and build dependencies; install the full environment with setup_env.sh.
+numpy==1.26.4
+scipy==1.15.3
+opencv-python==4.8.1.78
+trimesh==4.2.2
+smplx==0.1.28
+PyYAML==6.0.1
+easydict==1.13
+addict==2.4.0
+tqdm==4.67.1
+torchdiffeq==0.2.5
+einops==0.7.0
+rtree==1.2.0
+open3d==0.18.0
+
+# Hugging Face downloads and uploads, including the hf CLI and Xet transfers.
+huggingface_hub[cli]==0.36.2
+hf-xet==1.2.0
+
+# Build tools installed before FlashAttention and Chumpy.
+packaging
+ninja
+setuptools
+wheel

@@ -1,0 +1,22 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.vscode/
+# Downloaded initialization, model assets, checkpoints, and predictions.
+/data/
+/_DATA/
+/weights/
+/checkpoints/
+/results/
+/exp/
+*.pth
+*.pt
+*.ckpt
+*.pkl
+*.npz
+*.npy
+*.log
+
+# Metadata created by hf download --local-dir .
+/.cache/huggingface/

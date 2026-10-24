@@ -1,0 +1,62 @@
+# Shared HO3D and DexYCB inference settings from guidance_contact.yaml.
+# Paths are relative to the repository root.
+seed: 3407
+input:
+  img_size: 224
+  full_image: true
+  apply_mask: false
+  rescale_factor: 1
+  normalize_trans: true
+  obj_sample_num: 4096
+model:
+  name: HOISeqBridgeFlow
+  bridge_cfg:
+    prediction: velocity
+    beta: 0.001
+  denoiser_cfg:
+    name: HOISeqRefineDenoiser
+    cfg:
+      obj_grid_size: 0.01
+      seq_len: 16
+      ray_encoding: true
+      mano_cfg:
+        model_path: _DATA/mano
+        num_hand_joints: 15
+    img_backbone_cfg:
+      name: DinoV2Base
+      img_size: 518
+      patch_size: 14
+      init_values: 1.0
+      ffn_layer: mlp
+      block_chunks: 0
+      num_register_tokens: 0
+      interpolate_antialias: false
+      interpolate_offset: 0.1
+    hoi_encoder_cfg:
+      name: PointTransformerV3
+      in_channels: 25
+      cls_mode: true
+    grasp_head_cfg:
+      name: HOISeqRefineHead
+      grasp_dit:
+        visual_dim: 768
+        hoi_dim: 512
+        pose_dim: 512
+        depth: 6
+        heads: 8
+        inner_dim: 512
+      npose: 108
+  guidance_cfg:
+    verbose: false
+    guidance_only: false
+    interaction_target: object
+    penetration_scale: 10.0
+    penetration_threshold: 0.005
+    contact_scale: 5.0
+    contact_threshold: 0.005
+    silhouette_scale: 10.0
+    smoothness_scale: 5.0
+    guidance_scale: 0.01
+    grad_clip_norm: 0.5
+    guidance_start_t: 0.9
+    guidance_iters: 10
